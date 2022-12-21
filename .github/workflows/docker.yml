@@ -16,7 +16,7 @@ on:
       - 'master'
 jobs:
   build-armv7-image:
-    name: Push Docker image to Docker Hub
+    name: Build ARMv7 Image
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -45,7 +45,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
   build-arm64-image:
-    name: Push Docker image to Docker Hub
+    name: Build ARM64 Image
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -74,7 +74,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
   build-amd64-image:
-    name: Push Docker image to Docker Hub
+    name: Build AMD64 Image
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -103,7 +103,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
   build-s390x-image:
-    name: Push Docker image to Docker Hub
+    name: Build S390X Image
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -147,5 +147,5 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Combine images
         run: |
-          docker manifest create xrayr-project/xrayr:master --amend xrayr-project/xrayr-armv7:master --amend xrayr-project/xrayr-arm64:master --amend xrayr-project/xrayr-amd64:master --amend xrayr-project/xrayr-s390x:master
-          docker manifest push xrayr-project/xrayr:master
+          docker manifest create ${{ steps.meta.outputs.tags }} --amend xrayr-project/xrayr-armv7:master --amend xrayr-project/xrayr-arm64:master --amend xrayr-project/xrayr-amd64:master --amend xrayr-project/xrayr-s390x:master
+          docker manifest push ${{ steps.meta.outputs.tags }}
