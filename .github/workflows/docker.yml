@@ -147,5 +147,5 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Combine images
         run: |
-          docker manifest create ${{ steps.meta.outputs.tags }} --amend xrayr-project/xrayr-armv7:master --amend xrayr-project/xrayr-arm64:master --amend xrayr-project/xrayr-amd64:master --amend xrayr-project/xrayr-s390x:master
+          docker manifest create ${{ steps.meta.outputs.tags }} --amend ghcr.io/xrayr-project/xrayr-armv7:master --amend ghcr.io/xrayr-project/xrayr-arm64:master --amend ghcr.io/xrayr-project/xrayr-amd64:master --amend ghcr.io/xrayr-project/xrayr-s390x:master
           docker manifest push ${{ steps.meta.outputs.tags }}
