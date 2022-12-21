@@ -40,7 +40,7 @@ jobs:
           context: .
           platforms: linux/arm/v7
           push: ${{ github.event_name != 'pull_request' }}
-          tags: xrayr-project/xrayr-armv7:master
+          tags: ghcr.io/xrayr-project/xrayr-armv7:master
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -69,7 +69,7 @@ jobs:
           context: .
           platforms: linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: xrayr-project/xrayr-arm64:master
+          tags: ghcr.io/xrayr-project/xrayr-arm64:master
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -98,7 +98,7 @@ jobs:
           context: .
           platforms: linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: xrayr-project/xrayr-amd64:master
+          tags: ghcr.io/xrayr-project/xrayr-amd64:master
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -127,7 +127,7 @@ jobs:
           context: .
           platforms: linux/s390x
           push: ${{ github.event_name != 'pull_request' }}
-          tags: xrayr-project/xrayr-s390x:master
+          tags: ghcr.io/xrayr-project/xrayr-s390x:master
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
